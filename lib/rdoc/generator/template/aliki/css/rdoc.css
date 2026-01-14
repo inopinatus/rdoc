@@ -2,6 +2,8 @@
  * Aliki Theme Stylesheet
  * Modern RDoc theme by Stan Lo
  *
+ * palette & spacing adjustments by inopinatus
+ *
  * Features:
  * - Three-column responsive layout (navigation, content, table of contents)
  * - Dark mode support with localStorage persistence
@@ -16,28 +18,28 @@
 /* Light Theme (Default) */
 :root {
   /* Color Palette - Primary */
-  --color-primary-50: #fdeae9;
-  --color-primary-100: #fadad3;
-  --color-primary-200: #f8bfbd;
-  --color-primary-300: #f5a9a7;
-  --color-primary-400: #f07f7b;
-  --color-primary-500: #eb544f;
-  --color-primary-600: #e62923;
-  --color-primary-700: #b8211c;
-  --color-primary-800: #8a1915;
-  --color-primary-900: #5c100e;
+  --color-primary-50: rgba(255, 117, 200, 0.18);
+  --color-primary-100: rgba(255, 113, 196, 0.26);
+  --color-primary-200: rgba(255, 111, 192, 0.34);
+  --color-primary-300: rgba(255, 109, 188, 0.42);
+  --color-primary-400: rgba(255, 107, 184, 0.5);
+  --color-primary-500: rgba(255, 105, 180, 0.58);
+  --color-primary-600: rgba(255, 105, 180, 0.66);
+  --color-primary-700: rgba(255, 105, 180, 0.74);
+  --color-primary-800: rgba(255, 105, 180, 0.82);
+  --color-primary-900: rgba(255, 105, 180, 0.9);
 
   /* Color Palette - Neutral */
-  --color-neutral-50: #fafaf9;
-  --color-neutral-100: #f5f5f4;
-  --color-neutral-200: #e7e5e4;
-  --color-neutral-300: #d6d3d1;
-  --color-neutral-400: #a8a29e;
-  --color-neutral-500: #78716c;
-  --color-neutral-600: #57534e;
-  --color-neutral-700: #44403c;
-  --color-neutral-800: #292524;
-  --color-neutral-900: #1c1917;
+  --color-neutral-50: rgba(28, 25, 23, 0.23);
+  --color-neutral-100: rgba(28, 25, 23, 0.30);
+  --color-neutral-200: rgba(28, 25, 23, 0.37);
+  --color-neutral-300: rgba(28, 25, 23, 0.44);
+  --color-neutral-400: rgba(28, 25, 23, 0.53);
+  --color-neutral-500: rgba(28, 25, 23, 0.60);
+  --color-neutral-600: rgba(28, 25, 23, 0.67);
+  --color-neutral-700: rgba(28, 25, 23, 0.74);
+  --color-neutral-800: rgba(28, 25, 23, 0.81);
+  --color-neutral-900: rgba(28, 25, 23, 0.88);
 
   /* Code highlighting colors */
   --code-blue: #1d4ed8;
@@ -66,21 +68,22 @@
   /* Semantic Colors - Light Theme */
   --color-text-primary: var(--color-neutral-900);
   --color-text-secondary: var(--color-neutral-600);
-  --color-text-tertiary: var(--color-neutral-500);
-  --color-background-primary: #fff;
-  --color-background-secondary: var(--color-neutral-50);
-  --color-background-tertiary: var(--color-neutral-100);
+  --color-text-tertiary: var(--color-neutral-400);
+  --color-background-primary: linear-gradient(135deg, rgba(251, 249, 247, 1), rgba(242, 239, 236, 1), rgba(251, 249, 247, 1));
+  --color-background-secondary: rgba(247, 244, 241, 1);
+  --color-background-tertiary: rgba(240, 236, 232, 1);
   --color-border-default: var(--color-neutral-300);
   --color-border-subtle: var(--color-neutral-200);
   --color-border-emphasis: var(--color-neutral-400);
   --color-link-default: var(--color-text-primary);
   --color-link-hover: var(--color-primary-600);
-  --color-accent-primary: var(--color-primary-600);
+  --color-accent-primary: var(--color-primary-900);
+  --color-accent-subtle-contrast: rgba(240, 20, 142, 0.8);
   --color-accent-hover: var(--color-primary-700);
   --color-accent-subtle: var(--color-primary-50);
   --color-code-bg: #f6f8fa;
   --color-code-border: var(--color-neutral-300);
-  --color-nav-bg: #fff;
+  --color-nav-bg: var(--color-background-secondary);
   --color-nav-text: var(--color-neutral-700);
   --color-th-background: var(--color-neutral-100);
   --color-td-background: var(--color-neutral-50);
@@ -135,15 +138,16 @@
   --line-height-relaxed: 1.625;
 
   /* Spacing Scale */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
+  --space-1: 0.12rem;
+  --space-2: 0.25rem;
+  --space-3: 0.37rem;
+  --space-4: 0.5rem;
+  --space-5: 0.65rem;
+  --space-6: 0.75rem;
+  --space-8: 1rem;
+  --space-12: 1.5rem;
+  --space-16: 2rem;
+
 
   /* Border Radius */
   --radius-sm: 0.25rem;   /* 4px */
@@ -157,8 +161,8 @@
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
 
   /* Layout Dimensions */
-  --layout-sidebar-width: 300px;
-  --layout-sidebar-width-min: 300px;
+  --layout-sidebar-width: 260px;
+  --layout-sidebar-width-min: 260px;
   --layout-sidebar-width-max: 15%;
   --layout-toc-width-min: 240px;
   --layout-toc-width-max: 18%;
@@ -173,9 +177,9 @@
   --ease-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Animation Durations */
-  --duration-fast: 250ms;
-  --duration-base: 300ms;
-  --duration-medium: 350ms;
+  --duration-fast: 150ms;
+  --duration-base: 2000ms;
+  --duration-medium: 250ms;
 
   /* Z-Index Scale */
   --z-fixed: 300;
@@ -186,6 +190,17 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
+  --color-neutral-50: rgba(240, 240, 240, 0.88);
+  --color-neutral-100: rgba(240, 240, 240, 0.81);
+  --color-neutral-200: rgba(240, 240, 240, 0.74);
+  --color-neutral-300: rgba(240, 240, 240, 0.57);
+  --color-neutral-400: rgba(240, 240, 240, 0.50);
+  --color-neutral-500: rgba(240, 240, 240, 0.43);
+  --color-neutral-600: rgba(240, 240, 240, 0.34);
+  --color-neutral-700: rgba(240, 240, 240, 0.27);
+  --color-neutral-800: rgba(240, 240, 240, 0.20);
+  --color-neutral-900: rgba(240, 240, 240, 0.16);
+
   /* Code highlighting colors */
   --code-blue: #93c5fd;
   --code-green: #34d399;
@@ -207,23 +222,24 @@
 
   /* Semantic Colors - Dark Theme */
   --color-text-primary: var(--color-neutral-50);
-  --color-text-secondary: var(--color-neutral-200);
+  --color-text-secondary: var(--color-neutral-100);
   --color-text-tertiary: var(--color-neutral-400);
-  --color-background-primary: var(--color-neutral-900);
-  --color-background-secondary: var(--color-neutral-800);
-  --color-background-tertiary: var(--color-neutral-700);
+  --color-background-primary: linear-gradient(135deg, #090909, #191111, #090909);
+  --color-background-secondary: #090909;
+  --color-background-tertiary: #090909;
   --color-border-default: var(--color-neutral-600);
   --color-border-subtle: var(--color-neutral-700);
   --color-border-emphasis: var(--color-neutral-300);
   --color-link-default: var(--color-neutral-50);
-  --color-link-hover: var(--color-primary-500);
-  --color-accent-primary: var(--color-primary-500);
-  --color-accent-hover: var(--color-primary-400);
+  --color-link-hover: var(--color-primary-700);
+  --color-accent-primary: var(--color-primary-900);
+  --color-accent-hover: var(--color-primary-700);
+  --color-accent-subtle-contrast: var(--color-primary-900);
   --color-accent-subtle: rgb(235 84 79 / 10%);
   --color-accent-subtle-hover: rgb(235 84 79 / 20%);
-  --color-code-bg: var(--color-neutral-800);
+  --color-code-bg: linear-gradient(135deg, #232020, #262020, #262020);
   --color-code-border: var(--color-neutral-700);
-  --color-nav-bg: var(--color-neutral-900);
+  --color-nav-bg: linear-gradient(135deg, #090909, #191111, #090909);;
   --color-nav-text: var(--color-neutral-50);
   --color-th-background: var(--color-background-tertiary);
   --color-td-background: var(--color-background-secondary);
@@ -293,7 +309,7 @@ a {
 /* Code blocks */
 pre {
   font-family: var(--font-code);
-  background-color: var(--color-code-bg);
+  background: var(--color-code-bg);
   border: 1px solid var(--color-code-border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
@@ -320,7 +336,7 @@ pre {
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.7;
   transition:
     opacity var(--transition-fast),
     background var(--transition-fast),
@@ -407,7 +423,8 @@ code {
   border: 1px solid var(--color-border-subtle);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
-  font-size: 0.9em;
+  font-size: 0.85em;
+  white-space: nowrap;
 }
 
 pre code {
@@ -685,8 +702,8 @@ nav p {
 }
 
 nav ul li {
-  margin-bottom: var(--space-2);
-  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-1);
+  line-height: var(--line-height-normal);
 }
 
 nav ul li a {
@@ -957,7 +974,7 @@ main {
 
 main h1[class] {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   font-size: 2.5em;
   color: var(--color-accent-primary);
 }
@@ -984,8 +1001,8 @@ main h1 {
 main h2 {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-4);
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-2);
   line-height: var(--line-height-tight);
 }
 
@@ -1095,8 +1112,9 @@ em {
 /* Paragraphs */
 main p {
   line-height: var(--line-height-relaxed);
+  margin-block-start: 0.5em;
   font-weight: 400;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 /* Preformatted Text */
@@ -1290,7 +1308,7 @@ main .method-description .method-calls-super {
 }
 
 main .method-detail {
-  margin-bottom: 2.5em;
+  margin-bottom: 1.5em;
 }
 
 main .method-detail:target {
@@ -1307,7 +1325,7 @@ main .method-header {
 main .method-heading {
   position: relative;
   font-family: var(--font-code);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-3);
 }
@@ -1327,7 +1345,7 @@ main .method-controls {
 main .method-controls summary {
   display: inline-block;
   line-height: 20px;
-  color: var(--color-accent-primary);
+  color: var(--color-accent-subtle-contrast);
   cursor: pointer;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-sm);
@@ -1366,7 +1384,7 @@ main .method-controls summary:active {
 
 main .method-description,
 main .aliases {
-  margin-top: 0.75em;
+  margin-top: 0.25em;
   color: var(--color-text-primary);
 }
 
@@ -1686,7 +1704,7 @@ aside.table-of-contents .toc-list > .toc-h3 {
 }
 
 .table-of-contents li {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
 }
 
 .table-of-contents a {
@@ -1731,7 +1749,7 @@ footer.site-footer {
   grid-area: footer;
   background: var(--color-background-secondary);
   border-top: 1px solid var(--color-border-default);
-  padding: var(--space-12) var(--space-6);
+  padding: var(--space-8) var(--space-6);
 }
 
 footer.site-footer .footer-content {
@@ -1743,7 +1761,7 @@ footer.site-footer .footer-content {
 }
 
 footer.site-footer h3 {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   margin: 0 0 var(--space-4) 0;
@@ -1763,7 +1781,7 @@ footer.site-footer li {
 footer.site-footer a {
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   transition: color var(--transition-fast);
 }
 
@@ -1780,6 +1798,10 @@ footer.site-footer .footer-bottom {
   color: var(--color-text-tertiary);
 }
 
+footer.site-footer .footer-bottom p {
+  margin: 0;
+}
+
 footer.site-footer .footer-bottom:first-child {
   margin-top: 0;
   padding-top: 0;
@@ -1789,7 +1811,7 @@ footer.site-footer .footer-bottom:first-child {
 /* Search */
 #search-section {
   padding: var(--space-6);
-  background-color: var(--color-background-primary);
+  background: var(--color-background-primary);
   border-bottom: 1px solid var(--color-border-default);
 }
 
