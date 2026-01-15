@@ -1650,6 +1650,7 @@ aside.table-of-contents .toc-sticky {
 
 aside.table-of-contents .toc-sticky nav {
   height: auto;
+  background: inherit;
 }
 
 aside.table-of-contents .toc-list > .toc-h2 {
