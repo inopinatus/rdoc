@@ -388,7 +388,10 @@ class RDoc::Generator::Darkfish
     @files.each do |file|
       current = file
 
-      next if file.text? && file.full_name == @options.main_page
+      if file.text? && file.full_name == @options.main_page
+        generate_main_page_redirect file
+        next
+      end
 
       if file.text? and page_file.exist? then
         generate_page file
@@ -459,6 +462,41 @@ class RDoc::Generator::Darkfish
       here.local_variable_set(:current, current)
       here.local_variable_set(:asset_rel_prefix, asset_rel_prefix)
       here
+    end
+  end
+
+  ##
+  # Generates a redirect from the historical main page URL to the index.
+
+  def generate_main_page_redirect(file)
+    path = File.join(*[@options.file_path_prefix, file.http_url].compact)
+    target = RDoc::Markup::ToHtml.gen_relative_url path, 'index.html'
+    out_file = @outputdir + path
+
+    debug_msg "  redirecting %s to %s" % [path, target]
+    return if @dry_run || !@file_output
+
+    out_file.dirname.mkpath
+    out_file.open 'w', 0644 do |io|
+      io.set_encoding @options.encoding
+      io.write <<~HTML
+        <!DOCTYPE html>
+
+        <html>
+        <head>
+          <meta charset="#{h @options.charset}">
+          <meta http-equiv="refresh" content="0; url=#{h target}">
+          <link rel="canonical" href="#{h target}">
+          <title>Redirecting</title>
+        </head>
+        <body>
+          <p>This page has moved to <a href="#{h target}">the documentation index</a>.</p>
+          <script>
+            location.replace(#{target.dump} + location.search + location.hash);
+          </script>
+        </body>
+        </html>
+      HTML
     end
   end
 
